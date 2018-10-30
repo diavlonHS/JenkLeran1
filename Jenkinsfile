@@ -1,9 +1,16 @@
+
+Jenkinsfile (Declarative Pipeline)
+
 pipeline {
-    agent { docker { image 'php' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'php'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
