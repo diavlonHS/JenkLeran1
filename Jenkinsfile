@@ -5,14 +5,15 @@ pipeline {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
     }
-    
-    stage('Sanity check') {
-        steps {
-            input "Does the staging environment look ok?"
-        }
-    }
-    
+        
     stages {
+        
+        stage('Sanity check') {
+           steps {
+             input "Does the staging environment look ok?"
+           }
+        }
+                
         stage('Build') {
             steps {
                 sh 'printenv'
